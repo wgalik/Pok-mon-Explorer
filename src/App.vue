@@ -7,9 +7,8 @@ import PokemonCard from "./components/PokemonCard.vue";
 
 const limit = ref(6);
 const pokemonList = ref([]);
-const text = ref("");
 const gotData = ref(false);
-const input = defineModel();
+const text = defineModel();
 
 const list = computed(() => pokemonList.value.slice(0, limit.value));
 

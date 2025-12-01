@@ -61,7 +61,7 @@ const getPokemon = () => {
     </h2>
 
     <p class="text-white">{{ serialNumber }}</p>
-    <div class="types flex justify-center items gap-2">
+    <div class="types flex flex-col sm:flex-row justify-center items gap-2">
       <TypePill
         v-for="type in pokemonTypes"
         class="text-white"
