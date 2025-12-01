@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer components {
+  body {
+    @apply h-dvh w-dvw bg-[#121212];
+  }
+  #app {
+    @apply grid gap-8 justify-center;
+  }
+}
