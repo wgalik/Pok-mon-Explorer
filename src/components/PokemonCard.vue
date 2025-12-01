@@ -1,4 +1,6 @@
 <script setup>
+import TypePill from "./typePill.vue";
+
 import { ref, onMounted, computed } from "vue";
 const { name, url, typeColors } = defineProps(["name", "url", "typeColors"]);
 
@@ -9,6 +11,10 @@ const pokemonImage = ref([]);
 const serialNumber = computed(() => {
   const match = url.match(/\/(\d+)\/?$/);
   return match[1];
+});
+
+const typeNames = computed(() => {
+  return pokemonTypes.value.map((type) => type.type.name);
 });
 
 onMounted(() => {
@@ -33,21 +39,36 @@ const getPokemon = () => {
 
 <template>
   <div
-    class="card basis-1/3 border-2 rounded-xl grid justify-center text-center p-4"
-    :style="{ backgroundColor: typeColors[pokemonTypes[0]] }"
+    class="grid basis-1/3 gap-2 w-full text-white card rounded-xl justify-center text-center p-2"
+    :style="
+      typeNames.length === 1
+        ? { backgroundColor: typeColors[typeNames[0]] }
+        : {
+            background: `linear-gradient(to right, ${
+              typeColors[typeNames[0]]
+            }, ${typeColors[typeNames[1]]})`,
+          }
+    "
   >
     <img
       :src="pokemonImage"
       alt="Pokemon image"
       srcset=""
-      class="w-12 aspect-square"
+      class="w-25 aspect-square justify-self-center"
     />
-    <h2 class="text-white">{{ name }}</h2>
+    <h2 class="text-white font-bold text-xl">
+      {{ name.charAt(0).toUpperCase() + name.slice(1) }}
+    </h2>
 
     <p class="text-white">{{ serialNumber }}</p>
-    <p v-for="type in pokemonTypes" class="text-white" :key="type.type.name">
-      {{ type.type.name }}
-    </p>
+    <div class="types flex justify-center items gap-2">
+      <TypePill
+        v-for="type in pokemonTypes"
+        class="text-white"
+        :key="type.type.name"
+        :pill="type.type.name"
+      />
+    </div>
   </div>
 </template>
 

@@ -65,14 +65,17 @@ const loadMore = () => (limit.value += 12);
 </script>
 
 <template>
-  <header class="flex flex-col justify-center items-center">
-    <h1 class="my-8 font-bold text-orange-400 text-3xl text-center">
-      <img :src="logoBall" class="w-9 aspect-square inline-block align-top" />
+  <header class="flex flex-col justify-center items-center w-full">
+    <h1 class="my-8 font-bold text-orange-400 text-4xl text-center">
+      <img :src="logoBall" class="w-10 aspect-square inline-block align-top" />
       Pokémon Explorer
     </h1>
-    <form @submit.prevent="submit">
+    <form
+      @submit.prevent="submit"
+      class="w-full flex justify-center items-center"
+    >
       <input
-        class="block w-150 bg-white/5 h-10 p-4 rounded-full"
+        class="block max-w-150 w-full bg-white/5 h-10 p-4 rounded-full text-white"
         @keyup.enter="submit"
         type="search"
         name=""
@@ -82,28 +85,23 @@ const loadMore = () => (limit.value += 12);
     </form>
   </header>
 
-  <section class="buttons flex justify-center items-center flex-wrap gap-4">
+  <section class="w-full flex justify-center items-center flex-wrap gap-4">
     <ButtonComponent
       type="button"
       v-for="(value, key) in typeColors"
       :key="value"
       :id="key"
       :style="{ backgroundColor: value }"
-      class="grid px-2 text-white rounded-full border-2 border-[#121212] text-sm cursor-pointer"
       :text="key"
       @click="buttonHandler"
     />
   </section>
 
-  <section
-    v-if="gotData"
-    class="container flex justify-center items-center flex-wrap gap-4 w-full"
-  >
+  <section v-if="gotData" class="container w-full grid grid-cols-3 gap-4">
     <PokemonCard
       v-for="pokemon in list"
       :name="pokemon.pokemon.name"
       :url="pokemon.pokemon.url"
-      class="grid basis-1/4 gap-4 text-white"
       :key="pokemon.pokemon.name"
       :typeColors
     />
@@ -112,9 +110,9 @@ const loadMore = () => (limit.value += 12);
     v-if="gotData"
     type="button"
     @click="loadMore"
-    class="grid w-40 p-4 font-bold text-white text-lg rounded-full border-2 bg-white/75 border-[#121212] hover:bg-white hover:text-black active:outline-2 transition duration-300 ease-in-out cursor-pointer justify-self-center"
+    class="grid w-40 px-4 font-bold text-white text-lg rounded-full border-2 bg-blue-500 border-[#121212] hover:bg-white hover:text-black active:outline-2 transition duration-300 ease-in-out cursor-pointer justify-self-center"
   >
-    Load more
+    Load More
   </button>
 </template>
 <style scoped>
