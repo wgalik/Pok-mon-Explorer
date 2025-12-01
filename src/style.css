@@ -2,9 +2,9 @@
 
 @layer components {
   body {
-    @apply h-dvh w-dvw bg-[#121212] flex justify-center items-start;
+    @apply h-dvh w-dvw bg-[#121212] flex justify-center items-start p-8;
   }
   #app {
-    @apply min-w-full grid  gap-8 px-8 justify-center;
+    @apply w-full grid  gap-8  justify-center;
   }
 }

@@ -97,7 +97,7 @@ const loadMore = () => (limit.value += 12);
     />
   </section>
 
-  <section v-if="gotData" class="container w-full grid grid-cols-3 gap-4">
+  <section v-if="gotData" class="w-full grid grid-cols-3 gap-4">
     <PokemonCard
       v-for="pokemon in list"
       :name="pokemon.pokemon.name"

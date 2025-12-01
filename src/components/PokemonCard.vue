@@ -39,7 +39,7 @@ const getPokemon = () => {
 
 <template>
   <div
-    class="grid basis-1/3 gap-2 w-full text-white card rounded-xl justify-center text-center p-2"
+    class="grid basis-1/3 gap-2 w-full text-white card rounded-xl text-center items-center p-2"
     :style="
       typeNames.length === 1
         ? { backgroundColor: typeColors[typeNames[0]] }
