@@ -25,7 +25,7 @@ The app allows users to browse Pokémon by type, search by name, and load more r
 
 ## 🧩 Technologies Used
 
-- Vue 3 with <script setup>
+- Vue 3 with `<script setup>`
 - Composition API (ref, computed, onMounted)
 - PokeAPI (https://pokeapi.co/)
 - Fetch API for data loading
