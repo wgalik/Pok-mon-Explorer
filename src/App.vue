@@ -99,7 +99,7 @@ const loadMore = () => (limit.value += 12);
       v-if="gotData"
       type="button"
       @click="loadMore"
-      class="grid w-40 px-4 font-bold text-white text-lg rounded-full border-2 bg-blue-500 border-[#121212] hover:bg-white hover:text-black active:outline-2 transition duration-300 ease-in-out cursor-pointer justify-self-center"
+      class="grid w-40 px-4 py-1 font-bold text-white text-lg rounded-full border-2 bg-blue-500 border-[#121212] hover:bg-white hover:text-black active:outline-2 transition duration-300 ease-in-out cursor-pointer justify-self-center"
     >
       Load More
     </button>
